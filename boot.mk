@@ -42,9 +42,16 @@ $(INSTALLED_BOOTIMAGE_TARGET): \
 #	$(hide) $(call assert-max-image-size,$@, \
 #		$(BOARD_BOOTIMAGE_PARTITION_SIZE),raw)
 
+LZMA_BIN := $(shell which lzma)
+
 $(INSTALLED_RECOVERYIMAGE_TARGET): \
 		$(MKBOOTIMG) $(recovery_ramdisk) $(recovery_kernel) \
+		$(recovery_uncompressed_ramdisk) \
 		$(BOWSER_BOOTLOADER)
+	@echo -e ${CL_CYN}"----- Compressing recovery ramdisk with lzma ------"${CL_RST}
+	$(hide) rm -f $(OUT)/ramdisk-recovery.cpio.lzma
+	$(LZMA_BIN) -e -4 $(recovery_uncompressed_ramdisk)
+	$(hide) cp $(recovery_uncompressed_ramdisk).lzma $(recovery_ramdisk)		
 	@echo ----- Making recovery image ------
 	$(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) --output $@.tmp
 	$(hide) cat $(BOWSER_BOOT_CERT_FILE) $@.tmp >$@
