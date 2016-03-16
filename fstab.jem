@@ -12,3 +12,4 @@
 /dev/block/platform/omap/omap_hsmmc.1/by-name/recovery    /recovery   emmc   defaults                                                 defaults
 /dev/block/platform/omap/omap_hsmmc.1/by-name/bootloader  /bootloader emmc   defaults                                                 defaults
 /dev/block/zram0                                          none        swap   defaults                                                 zramsize=268435456,zramstreams=2,notrim
+/devices/platform/omap/musb-omap2430/musb-hdrc/usb*       auto        auto   defaults                                                 voldmanaged=usb:auto
