@@ -50,6 +50,7 @@ TW_THEME := landscape_hdpi
 RECOVERY_TOUCHSCREEN_SWAP_XY := true
 RECOVERY_TOUCHSCREEN_FLIP_X := true
 TW_BRIGHTNESS_PATH := /sys/class/backlight/bowser/brightness
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/platform/omap/omap_temp_sensor.0/temp1_input"
 TW_IGNORE_DEVICE := MAX44007
 TW_NO_USB_STORAGE := true
 TW_EXCLUDE_SUPERSU := true
