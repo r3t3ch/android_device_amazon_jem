@@ -26,6 +26,9 @@ TARGET_KERNEL_SOURCE := kernel/amazon/bowser-common
 TARGET_KERNEL_CONFIG := android_omap4_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := android_jem_defconfig
 BOARD_KERNEL_CMDLINE := mem=1G androidboot.hardware=bowser console=ttyO2,115200n8 androidboot.console=ttyO2 androidboot.selinux=permissive
+TARGET_GCC_VERSION_ARM := 4.8
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-$(TARGET_GCC_VERSION_ARM)/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 
 # OTA Packaging / Bootimg creation
 BOARD_CUSTOM_BOOTIMG := true
